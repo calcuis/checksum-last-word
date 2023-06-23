@@ -10,6 +10,12 @@ The `seed_phrase` is split into individual words using the space separator and s
 ```
 seed_phrase = seed_phrase.split(" ")
 ```
+Check if the input is 12, 15, 18, 21 or 24-word seed phrase combination or not.
+```
+if len(seed_phrase) not in [12, 15, 18, 21, 24]:
+    print("Input seed phrase must be 12, 15, 18, 21, or 24 words. Please leave ? for missing word(s).")
+    quit()
+```
 
 The file "english.txt" (obtain this BIP39 wordlist from [here](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt)) is opened in read mode, and its contents are read and stored in the variable `word_list`. Each line in the file represents a word.
 ```
