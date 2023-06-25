@@ -24,7 +24,7 @@ missing_bits_possible = [bin(x)[2:].rjust(num_missing_bits, "0") for x in range(
 
 entropy_possible = ["".join(seed_phrase_binary[:-1])+bits for bits in missing_bits_possible]
 
-#refer to SHA256 library for entropy checksum
+#refer to SHA256 library for entropy checksum (built-in library)
 import hashlib
 
 checksum = [format(hashlib.sha256(int(entropy, 2).to_bytes(len(entropy) // 8, byteorder="big")).digest()[0],"08b")[:11-num_missing_bits] for entropy in entropy_possible]
